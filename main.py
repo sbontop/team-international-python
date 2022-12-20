@@ -13,13 +13,13 @@ class DataCapture():
         self.data.append(number)
 
     def less(self, number):
-        return [x for x in self.data if x < number]
+        return len([x for x in self.data if x < number])
     
     def between(self, number1, number2):
-        return [x for x in self.data if x >= number1 and x <= number2]
+        return len([x for x in self.data if x >= number1 and x <= number2])
     
     def greater(self, number):
-        return [x for x in self.data if x > number]
+        return len([x for x in self.data if x > number])
     
     def build_stats(self):
         return {

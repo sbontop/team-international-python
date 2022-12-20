@@ -28,34 +28,34 @@ class TestMain(unittest.TestCase):
     
     def test_less_should_be_equal(self):
         number = 4
-        expected = [1, 2, 3]
+        expected = 3
         self.assertEqual(self.actual.less(number), expected)
 
     def test_less_should_not_be_equal(self):
         number = 4
-        expected = [1, 2, 3, 4]
+        expected = 4
         self.assertNotEqual(self.actual.less(number), expected)
     
     def test_between_should_be_equal(self):
         number1 = 2
         number2 = 4
-        expected = [2, 3, 4]
+        expected = 3
         self.assertEqual(self.actual.between(number1, number2), expected)
     
     def test_between_should_not_be_equal(self):
         number1 = 2
         number2 = 4
-        expected = [2, 3]
+        expected = 2
         self.assertNotEqual(self.actual.between(number1, number2), expected)
 
     def test_greater_should_be_equal(self):
         number = 3
-        expected = [4, 5]
+        expected = 2
         self.assertEqual(self.actual.greater(number), expected)
     
     def test_greater_should_not_be_equal(self):
         number = 3
-        expected = [4]
+        expected = 1
         self.assertNotEqual(self.actual.greater(number), expected)
     
     def test_build_stats_should_be_equal(self):
