@@ -2,7 +2,7 @@ import unittest
 from main import DataCapture
 
 class TestMain(unittest.TestCase):
-    def setUp(self):
+    def setUp(self) -> None:
         self.actual = DataCapture()
         self.actual.add(1)
         self.actual.add(2)
@@ -10,55 +10,55 @@ class TestMain(unittest.TestCase):
         self.actual.add(4)
         self.actual.add(5)
 
-    def test_add_should_be_equal(self):
+    def test_add_should_be_equal(self) -> None:
         expected = [1, 2, 3, 4, 5]
         self.assertEqual(self.actual.data, expected)
     
-    def test_add_should_not_be_equal(self):
+    def test_add_should_not_be_equal(self) -> None:
         expected = [1, 2]
         self.assertNotEqual(self.actual.data, expected)
     
-    def test_add_not_an_integer(self):
+    def test_add_not_an_integer(self) -> None:
         with self.assertRaises(ValueError):
             self.actual.add('a')
     
-    def test_add_negative_number(self):
+    def test_add_negative_number(self) -> None:
         with self.assertRaises(ValueError):
             self.actual.add(-1)
     
-    def test_less_should_be_equal(self):
+    def test_less_should_be_equal(self) -> None:
         number = 4
         expected = 3
         self.assertEqual(self.actual.less(number), expected)
 
-    def test_less_should_not_be_equal(self):
+    def test_less_should_not_be_equal(self) -> None:
         number = 4
         expected = 4
         self.assertNotEqual(self.actual.less(number), expected)
     
-    def test_between_should_be_equal(self):
+    def test_between_should_be_equal(self) -> None:
         number1 = 2
         number2 = 4
         expected = 3
         self.assertEqual(self.actual.between(number1, number2), expected)
     
-    def test_between_should_not_be_equal(self):
+    def test_between_should_not_be_equal(self) -> None:
         number1 = 2
         number2 = 4
         expected = 2
         self.assertNotEqual(self.actual.between(number1, number2), expected)
 
-    def test_greater_should_be_equal(self):
+    def test_greater_should_be_equal(self) -> None:
         number = 3
         expected = 2
         self.assertEqual(self.actual.greater(number), expected)
     
-    def test_greater_should_not_be_equal(self):
+    def test_greater_should_not_be_equal(self) -> None:
         number = 3
         expected = 1
         self.assertNotEqual(self.actual.greater(number), expected)
     
-    def test_build_stats_should_be_equal(self):
+    def test_build_stats_should_be_equal(self) -> None:
         expected = {
             'min': 1,
             'max': 5,
@@ -67,7 +67,7 @@ class TestMain(unittest.TestCase):
         }
         self.assertEqual(self.actual.build_stats(), expected)
 
-    def test_build_stats_should_not_be_equal(self):
+    def test_build_stats_should_not_be_equal(self) -> None:
         expected = {
             'min': 1,
             'max': 5,

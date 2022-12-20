@@ -1,27 +1,27 @@
 class DataCapture():
-    def __init__(self):
+    def __init__(self) -> None:
         self.data = []
     
-    def validate(self, number):
+    def validate(self, number) -> None:
         if not isinstance(number, int):
             raise ValueError('Only integers are allowed')
         if number < 0:
             raise ValueError('Only positive integers are allowed')
 
-    def add(self, number):
+    def add(self, number) -> None:
         self.validate(number)
         self.data.append(number)
 
-    def less(self, number):
+    def less(self, number) -> int:
         return len([x for x in self.data if x < number])
     
-    def between(self, number1, number2):
+    def between(self, number1, number2) -> int:
         return len([x for x in self.data if x >= number1 and x <= number2])
     
-    def greater(self, number):
+    def greater(self, number) -> int:
         return len([x for x in self.data if x > number])
     
-    def build_stats(self):
+    def build_stats(self) -> dict:
         return {
             'min': min(self.data),
             'max': max(self.data),
