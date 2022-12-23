@@ -61,7 +61,7 @@ class StatBuilder:
     """
     This is a class to perform mathematical operations on integers.
     """
-    
+
     def __init__(self, data: list[int]):
         """
         The constructor for StatBuilder class
@@ -69,8 +69,8 @@ class StatBuilder:
         Parameters:
             data: The data to be used to build the stats.
             
-            Returns:
-                None
+        Returns:
+            None
         """
         self.data = data
         self.stats = self.build_stats()
