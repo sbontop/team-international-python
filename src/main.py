@@ -1,4 +1,4 @@
-import src.data_capture.data_capture as data_capture_service 
+import src.data_capture.data_capture as data_capture_service
 import src.stat_builder.stat_builder as stat_builder_service
 
 capture = data_capture_service.DataCapture()

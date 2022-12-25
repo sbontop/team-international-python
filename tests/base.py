@@ -3,7 +3,7 @@ import unittest
 import src.data_capture.data_capture as data_capture_service
 
 
-class BaseTestDataCapture(unittest.TestCase): 
+class BaseTestDataCapture(unittest.TestCase):
     def setUp(self) -> None:
         self.capture = self.create_capture()
 
