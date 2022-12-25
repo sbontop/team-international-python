@@ -1,4 +1,5 @@
 import unittest
+
 from src.data_capture import DataCapture
 
 
