@@ -1,5 +1,6 @@
 from src.stat_builder import StatBuilder
 
+
 class DataCapture:
     """
     This is a class to perform mathematical operations on integers.

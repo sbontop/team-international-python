@@ -1,5 +1,7 @@
 import unittest
+
 from src.data_capture import DataCapture
+
 
 class BaseTestDataCapture(unittest.TestCase):
     def setUp(self) -> None:
