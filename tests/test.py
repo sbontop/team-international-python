@@ -1,5 +1,6 @@
 from tests.base import BaseTestDataCapture, BaseTestStatBuilder
 
+
 class TestAddDataCapture(BaseTestDataCapture):
     def setUp(self) -> None:
         return super().setUp()
