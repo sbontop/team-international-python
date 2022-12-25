@@ -1,5 +1,5 @@
 import unittest
-from src.main import DataCapture
+from data_capture import DataCapture
 
 class BaseTestDataCapture(unittest.TestCase):
     def setUp(self) -> None:
@@ -11,7 +11,7 @@ class BaseTestDataCapture(unittest.TestCase):
         capture.add(2)
         capture.add(3)
         capture.add(4)
-        capture.add(5)  
+        capture.add(5)
         return capture
     
 
