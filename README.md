@@ -53,7 +53,7 @@ hesitate to ask your recruiter.
 2. `cd team-international-python/`
 3. `pipenv install`
 4. `pipenv shell`
-5. `python src/main.py` To run the project
+5. `python -m src.main` To run the project
 6. `python -m unittest tests/test.py` To run the tests
  
 
