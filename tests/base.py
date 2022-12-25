@@ -5,8 +5,8 @@ from src.data_capture import DataCapture
 
 class BaseTestDataCapture(unittest.TestCase):
     def setUp(self) -> None:
-        self.capture = self.create_capture() 
-    
+        self.capture = self.create_capture()
+
     def create_capture(self) -> DataCapture:
         capture: DataCapture = DataCapture()
         capture.add(1)
@@ -15,10 +15,9 @@ class BaseTestDataCapture(unittest.TestCase):
         capture.add(4)
         capture.add(5)
         return capture
-    
+
 
 class BaseTestStatBuilder(BaseTestDataCapture):
     def setUp(self) -> None:
         super().setUp()
         self.stats = self.capture.build_stats()
-    
