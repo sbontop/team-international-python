@@ -1,12 +1,12 @@
 import unittest
-from data_capture import DataCapture
+from src.data_capture import DataCapture
 
 class BaseTestDataCapture(unittest.TestCase):
     def setUp(self) -> None:
         self.capture = self.create_capture() 
     
-    def create_capture(self):
-        capture = DataCapture()
+    def create_capture(self) -> DataCapture:
+        capture: DataCapture = DataCapture()
         capture.add(1)
         capture.add(2)
         capture.add(3)
