@@ -1,5 +1,4 @@
-from src.stat_builder import StatBuilder
-
+import src.stat_builder.stat_builder as stat_builder_service
 
 class DataCapture:
     """
@@ -49,7 +48,7 @@ class DataCapture:
         self.validate_input(number)
         self.data.append(number)
 
-    def build_stats(self) -> StatBuilder:
+    def build_stats(self) -> stat_builder_service.StatBuilder:
         """
         The function to build the stats object.
 
@@ -57,4 +56,4 @@ class DataCapture:
             StatBuilder: The stats object.
         """
 
-        return StatBuilder(self.data)
+        return stat_builder_service.StatBuilder(self.data)

@@ -1,4 +1,4 @@
-from tests.base import BaseTestDataCapture, BaseTestStatBuilder
+from .base import BaseTestDataCapture, BaseTestStatBuilder
 
 
 class TestAddDataCapture(BaseTestDataCapture):
