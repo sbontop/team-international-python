@@ -8,18 +8,18 @@ class DataCapture:
 
     def __init__(self) -> None:
         """
-        The constructor for DataCapture class. 
+        The constructor for DataCapture class.
         """
 
         self.data: list[int] = []
-    
+
     def validate_input(self, input) -> None:
         """
         The function to validate that input is an integer and positive.
 
         Parameters:
             input: The value to be validated as an integer.
-        
+
         Raises:
             Value Error (Exception): The input is not an integer or is negative.
 
@@ -28,15 +28,14 @@ class DataCapture:
         """
 
         if not isinstance(input, int):
-            raise ValueError('Only integers are allowed')
+            raise ValueError("Only integers are allowed")
         if input < 0:
-            raise ValueError('Only positive integers are allowed')
-        
+            raise ValueError("Only positive integers are allowed")
 
     def add(self, number) -> None:
         """
         The function to add a number to the data list.
-        
+
         Parameters:
             number: The number to be added to the data list.
 
@@ -49,7 +48,7 @@ class DataCapture:
 
         self.validate_input(number)
         self.data.append(number)
-    
+
     def build_stats(self) -> StatBuilder:
         """
         The function to build the stats object.
@@ -57,5 +56,5 @@ class DataCapture:
         Returns:
             StatBuilder: The stats object.
         """
-        
+
         return StatBuilder(self.data)

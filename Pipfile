@@ -4,6 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+blacken-docs = "*"
 flake8 = "*"
 isort = "*"
 
