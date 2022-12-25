@@ -6,16 +6,16 @@ class StatBuilder:
     def __init__(self, data: list[int]) -> None:
         """
         The constructor for StatBuilder class
-        
+
         Parameters:
             data: The data to be used to build the stats.
-            
+
         Returns:
             None
         """
         self.data = data
         self.stats = self.build_stats()
-    
+
     def validate_range(self, n1: int, n2: int) -> None:
         """
         The function to validate that the range is valid.
@@ -32,8 +32,7 @@ class StatBuilder:
         """
         if n1 > n2:
             raise Exception(f"Invalid range, {n1} should be greater than {n2}")
-            
-    
+
     def build_stats(self) -> dict[str, int]:
         """
         The function to build the stats object.
@@ -46,11 +45,11 @@ class StatBuilder:
         between = lambda n1, n2: len([x for x in self.data if x >= n1 and x <= n2])
         greater = lambda n: len([x for x in self.data if x > n])
         return {
-            'less': less,
-            'between': between,
-            'greater': greater,
+            "less": less,
+            "between": between,
+            "greater": greater,
         }
-    
+
     def less(self, n: int) -> int:
         """
         The function to get the number of values less than a given number.
@@ -62,7 +61,7 @@ class StatBuilder:
             int: The number of values less than the given number.
         """
         return self.stats["less"](n)
-    
+
     def between(self, n1: int, n2: int) -> int:
         """
         The function to get the number of values between two given numbers.
@@ -81,7 +80,7 @@ class StatBuilder:
 
         self.validate_range(n1, n2)
         return self.stats["between"](n1, n2)
-    
+
     def greater(self, n: int) -> int:
         """
         The function to get the number of values greater than a given number.
