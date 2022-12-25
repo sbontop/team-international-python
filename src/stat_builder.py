@@ -3,7 +3,7 @@ class StatBuilder:
     This is a class to perform mathematical operations on integers.
     """
 
-    def __init__(self, data: list[int]):
+    def __init__(self, data: list[int]) -> None:
         """
         The constructor for StatBuilder class
         

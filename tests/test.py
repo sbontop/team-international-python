@@ -5,20 +5,22 @@ class TestAddDataCapture(BaseTestDataCapture):
         return super().setUp()
 
     def test_add_should_be_equal(self) -> None:
-        expected = [1, 2, 3, 4, 5]
+        expected: list[int] = [1, 2, 3, 4, 5]
         self.assertEqual(self.capture.data, expected)
     
     def test_add_should_not_be_equal(self) -> None:
-        expected = [1, 2]
+        expected: list[int] = [1, 2]
         self.assertNotEqual(self.capture.data, expected)
     
     def test_add_not_an_integer(self) -> None:
         with self.assertRaises(ValueError):
-            self.capture.add('a')
+            value: str = 'a'
+            self.capture.add(value)
     
     def test_add_negative_number(self) -> None:
         with self.assertRaises(ValueError):
-            self.capture.add(-1)
+            value: int = -1
+            self.capture.add(value)
 
 class TestLessStatBuilder(BaseTestStatBuilder):
     def setUp(self) -> None:

@@ -1,3 +1,4 @@
+from src.stat_builder import StatBuilder
 
 class DataCapture:
     """
@@ -9,7 +10,7 @@ class DataCapture:
         The constructor for DataCapture class. 
         """
 
-        self.data = []
+        self.data: list[int] = []
     
     def validate_input(self, input) -> None:
         """
@@ -48,7 +49,7 @@ class DataCapture:
         self.validate_input(number)
         self.data.append(number)
     
-    def build_stats(self) -> None:
+    def build_stats(self) -> StatBuilder:
         """
         The function to build the stats object.
 
@@ -56,5 +57,4 @@ class DataCapture:
             StatBuilder: The stats object.
         """
         
-        from stat_builder import StatBuilder
         return StatBuilder(self.data)
