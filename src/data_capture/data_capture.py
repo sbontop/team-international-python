@@ -1,4 +1,5 @@
 import src.stat_builder.stat_builder as stat_builder_service
+import src.util.validators as validator_service
 
 
 class DataCapture:
@@ -13,25 +14,6 @@ class DataCapture:
 
         self.data: list[int] = []
 
-    def validate_input(self, input) -> None:
-        """
-        The function to validate that input is an integer and positive.
-
-        Parameters:
-            input: The value to be validated as an integer.
-
-        Raises:
-            Value Error (Exception): The input is not an integer or is negative.
-
-        Returns:
-            None
-        """
-
-        if not isinstance(input, int):
-            raise ValueError("Only integers are allowed")
-        if input < 0:
-            raise ValueError("Only positive integers are allowed")
-
     def add(self, number) -> None:
         """
         The function to add a number to the data list.
@@ -40,13 +22,14 @@ class DataCapture:
             number: The number to be added to the data list.
 
         Raises:
-            Value Error (Exception): The input is not an integer or is negative.
+            Value Error (Exception): The input is not an integer or is
+            negative.
 
         Returns:
             None
         """
 
-        self.validate_input(number)
+        validator_service.Validator.validate_input(number)
         self.data.append(number)
 
     def build_stats(self) -> stat_builder_service.StatBuilder:
