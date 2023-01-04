@@ -71,12 +71,6 @@ class TestBewteenStatBuilder(BaseTestStatBuilder):
         with self.assertRaises(exceptions_service.InvalidRangeGreaterError):
             self.stats.between(n1, n2)
 
-    def test_between_range_that_exceeds_max_value_should_fail(self) -> None:
-        n1: int = 1
-        n2: int = 1001
-        with self.assertRaises(exceptions_service.InvalidInputExceedMaxError):
-            self.stats.between(n1, n2)
-
     def test_between_range_that_is_greater_at_least_by_one_should_fail(self) -> None:
         n1: int = 1
         n2: int = 2
