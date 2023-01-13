@@ -36,10 +36,11 @@ class StatBuilder:
         }
         my_greater = {}
         self.data.sort()
+        MAX_NUMBER = 50
         i = 0
         j = 0
         tmp_input_data = [10, 20, 30]
-        while i < 50 and j < len(tmp_input_data):
+        while i < MAX_NUMBER and j < len(tmp_input_data):
             input_element = tmp_input_data[j]
             series_element = i + 1
             print(f"Serie Element: {series_element}, Input Element: {input_element}")
@@ -50,7 +51,7 @@ class StatBuilder:
                 my_greater[series_element] = tmp_input_data[j + 1:]
                 i += 1
             else:
-                if i == 10 - 1 and j == len(tmp_input_data) - 1:
+                if i == MAX_NUMBER - 1 and j == len(tmp_input_data) - 1:
                     my_greater[series_element] = []
                 j += 1
         print(f"my_greater: {my_greater}")
