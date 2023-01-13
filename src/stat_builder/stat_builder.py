@@ -1,5 +1,6 @@
 import src.util.constants as constants_service
 import src.util.validators as validator_service
+from collections import defaultdict
 
 
 class StatBuilder:
@@ -33,7 +34,28 @@ class StatBuilder:
             i: [n for n in self.data if i < n]
             for i in range(1, constants_service.MAX_VALUE + 1)
         }
+        my_greater = {}
+        self.data.sort()
+        i = 0
+        j = 0
+        tmp_input_data = [10, 20, 30]
+        while i < 50 and j < len(tmp_input_data):
+            input_element = tmp_input_data[j]
+            series_element = i + 1
+            print(f"Serie Element: {series_element}, Input Element: {input_element}")
+            if series_element < input_element:
+                my_greater[series_element] = tmp_input_data[j:]
+                i += 1
+            elif series_element == input_element:
+                my_greater[series_element] = tmp_input_data[j + 1:]
+                i += 1
+            else:
+                if i == 10 - 1 and j == len(tmp_input_data) - 1:
+                    my_greater[series_element] = []
+                j += 1
+        print(f"my_greater: {my_greater}")
 
+        
         less = {
             i: [n for n in self.data if i > n]
             for i in range(1, constants_service.MAX_VALUE + 1)
