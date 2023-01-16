@@ -1,6 +1,5 @@
 import src.util.constants as constants_service
 import src.util.validators as validator_service
-from collections import defaultdict
 
 
 class StatBuilder:
@@ -31,8 +30,8 @@ class StatBuilder:
         """
         self.data.sort()
         # Create a dictionary of the number of values greater than a given number.
-        ## Part 1: Populate the dictionary with values <= the max value from input data.
-        greater: dict[int: list] = {}
+        # Part 1: Populate the dictionary with values <= the max value from input data.
+        greater: dict[int:list] = {}
         i = 0
         j = 0
         while i < constants_service.MAX_VALUE and j < len(self.data):
@@ -42,20 +41,20 @@ class StatBuilder:
                 greater[series_element] = self.data[j:]
                 i += 1
             elif series_element == input_element:
-                greater[series_element] = self.data[j + 1:]
+                greater[series_element] = self.data[j + 1 :]
                 i += 1
             else:
                 if i == constants_service.MAX_VALUE - 1 and j == len(self.data) - 1:
                     greater[series_element] = []
                 j += 1
-        ## Part 2: Populate the dictionary with values > the max value from input data.
+        # Part 2: Populate the dictionary with values > the max value from input data.
         greater |= {
             x: greater[self.data[-1]]
             for x in range(self.data[-1] + 1, constants_service.MAX_VALUE + 1)
         }
 
         # Create a dictionary of the number of values less than a given number.
-        ## Part 1: Populate the dictionary with values <= the max value from input data.
+        # Part 1: Populate the dictionary with values <= the max value from input data.
         less = {}
         i = 0
         j = 0
