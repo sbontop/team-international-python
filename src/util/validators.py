@@ -50,4 +50,3 @@ class Validator:
             raise exceptions_service.InvalidRangeGreaterError(n1, n2)
         if n1 + 1 == n2:
             raise exceptions_service.InvalidRangeGreaterAtLeastByOneError(n1, n2)
-        
