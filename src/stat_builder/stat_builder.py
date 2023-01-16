@@ -29,37 +29,52 @@ class StatBuilder:
             dict[str, int]: The stats object.
 
         """
-
-        greater = {
-            i: [n for n in self.data if i < n]
-            for i in range(1, constants_service.MAX_VALUE + 1)
-        }
-        my_greater = {}
         self.data.sort()
-        MAX_NUMBER = 50
+        # Create a dictionary of the number of values greater than a given number.
+        ## Part 1: Populate the dictionary with values <= the max value from input data.
+        greater: dict[int: list] = {}
         i = 0
         j = 0
-        tmp_input_data = [10, 20, 30]
-        while i < MAX_NUMBER and j < len(tmp_input_data):
-            input_element = tmp_input_data[j]
+        while i < constants_service.MAX_VALUE and j < len(self.data):
+            input_element = self.data[j]
             series_element = i + 1
-            print(f"Serie Element: {series_element}, Input Element: {input_element}")
             if series_element < input_element:
-                my_greater[series_element] = tmp_input_data[j:]
+                greater[series_element] = self.data[j:]
                 i += 1
             elif series_element == input_element:
-                my_greater[series_element] = tmp_input_data[j + 1:]
+                greater[series_element] = self.data[j + 1:]
                 i += 1
             else:
-                if i == MAX_NUMBER - 1 and j == len(tmp_input_data) - 1:
-                    my_greater[series_element] = []
+                if i == constants_service.MAX_VALUE - 1 and j == len(self.data) - 1:
+                    greater[series_element] = []
                 j += 1
-        print(f"my_greater: {my_greater}")
+        ## Part 2: Populate the dictionary with values > the max value from input data.
+        greater |= {
+            x: greater[self.data[-1]]
+            for x in range(self.data[-1] + 1, constants_service.MAX_VALUE + 1)
+        }
 
-        
-        less = {
-            i: [n for n in self.data if i > n]
-            for i in range(1, constants_service.MAX_VALUE + 1)
+        # Create a dictionary of the number of values less than a given number.
+        ## Part 1: Populate the dictionary with values <= the max value from input data.
+        less = {}
+        i = 0
+        j = 0
+        while i < constants_service.MAX_VALUE and j < len(self.data):
+            input_element = self.data[j]
+            series_element = i + 1
+            if series_element < input_element:
+                less[series_element] = self.data[:j]
+                i += 1
+            elif series_element == input_element:
+                less[series_element] = self.data[:j]
+                i += 1
+                j += 1
+            else:
+                j += 1
+        ## Part 2: Populate the dictionary with values > the max value from input data.
+        less |= {
+            x: less[self.data[-1]]
+            for x in range(self.data[-1] + 1, constants_service.MAX_VALUE + 1)
         }
 
         return {
